@@ -1,5 +1,7 @@
 # Lacework Agent
 
+[![Build Status](https://travis-ci.com/ipcrm/ipcrm-lacework.svg?branch=main)](https://travis-ci.com/ipcrm/ipcrm-lacework)
+
 ## Table of Contents
 
 1. [Description](#description)
