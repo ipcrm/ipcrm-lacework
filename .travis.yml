@@ -18,14 +18,15 @@ bundler_args: --without system_tests
 rvm:
   - 2.5.7
 stages:
-  - static
-  - spec
+  # - static
+  # - spec
   - acceptance
 jobs:
   fast_finish: true
   include:
     -
       before_script:
+      - "bundle install"
       - "bundle exec rake 'litmus:provision_list[ubuntu]'"
       - "bundle exec rake 'litmus:install_agent[puppet6]'"
       - "bundle exec rake litmus:install_module"
