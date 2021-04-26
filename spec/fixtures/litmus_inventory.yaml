@@ -1,0 +1,113 @@
+---
+version: 2
+groups:
+- name: docker_nodes
+  targets: []
+- name: ssh_nodes
+  targets:
+  - uri: localhost:2222
+    config:
+      transport: ssh
+      ssh:
+        user: root
+        password: root
+        port: 2222
+        host-key-check: false
+    facts:
+      provisioner: docker
+      container_name: litmusimage_ubuntu_14_04-2222
+      platform: litmusimage/ubuntu:14.04
+      os-release:
+        NAME: Ubuntu
+        VERSION: 14.04.6 LTS, Trusty Tahr
+        ID: ubuntu
+        ID_LIKE: debian
+        PRETTY_NAME: Ubuntu 14.04.6 LTS
+        VERSION_ID: '14.04'
+        HOME_URL: http://www.ubuntu.com/
+        SUPPORT_URL: http://help.ubuntu.com/
+        BUG_REPORT_URL: http://bugs.launchpad.net/ubuntu/
+    features:
+    - puppet-agent
+  - uri: localhost:2223
+    config:
+      transport: ssh
+      ssh:
+        user: root
+        password: root
+        port: 2223
+        host-key-check: false
+    facts:
+      provisioner: docker
+      container_name: litmusimage_ubuntu_16_04-2223
+      platform: litmusimage/ubuntu:16.04
+      os-release:
+        NAME: Ubuntu
+        VERSION: 16.04.7 LTS (Xenial Xerus)
+        ID: ubuntu
+        ID_LIKE: debian
+        PRETTY_NAME: Ubuntu 16.04.7 LTS
+        VERSION_ID: '16.04'
+        HOME_URL: http://www.ubuntu.com/
+        SUPPORT_URL: http://help.ubuntu.com/
+        BUG_REPORT_URL: http://bugs.launchpad.net/ubuntu/
+        VERSION_CODENAME: xenial
+        UBUNTU_CODENAME: xenial
+    features:
+    - puppet-agent
+  - uri: localhost:2224
+    config:
+      transport: ssh
+      ssh:
+        user: root
+        password: root
+        port: 2224
+        host-key-check: false
+    facts:
+      provisioner: docker
+      container_name: litmusimage_ubuntu_18_04-2224
+      platform: litmusimage/ubuntu:18.04
+      os-release:
+        NAME: Ubuntu
+        VERSION: 18.04.5 LTS (Bionic Beaver)
+        ID: ubuntu
+        ID_LIKE: debian
+        PRETTY_NAME: Ubuntu 18.04.5 LTS
+        VERSION_ID: '18.04'
+        HOME_URL: https://www.ubuntu.com/
+        SUPPORT_URL: https://help.ubuntu.com/
+        BUG_REPORT_URL: https://bugs.launchpad.net/ubuntu/
+        PRIVACY_POLICY_URL: https://www.ubuntu.com/legal/terms-and-policies/privacy-policy
+        VERSION_CODENAME: bionic
+        UBUNTU_CODENAME: bionic
+    features:
+    - puppet-agent
+  - uri: localhost:2225
+    config:
+      transport: ssh
+      ssh:
+        user: root
+        password: root
+        port: 2225
+        host-key-check: false
+    facts:
+      provisioner: docker
+      container_name: litmusimage_ubuntu_20_04-2225
+      platform: litmusimage/ubuntu:20.04
+      os-release:
+        NAME: Ubuntu
+        VERSION: 20.04.2 LTS (Focal Fossa)
+        ID: ubuntu
+        ID_LIKE: debian
+        PRETTY_NAME: Ubuntu 20.04.2 LTS
+        VERSION_ID: '20.04'
+        HOME_URL: https://www.ubuntu.com/
+        SUPPORT_URL: https://help.ubuntu.com/
+        BUG_REPORT_URL: https://bugs.launchpad.net/ubuntu/
+        PRIVACY_POLICY_URL: https://www.ubuntu.com/legal/terms-and-policies/privacy-policy
+        VERSION_CODENAME: focal
+        UBUNTU_CODENAME: focal
+    features:
+    - puppet-agent
+- name: winrm_nodes
+  targets: []

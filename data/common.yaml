@@ -1,0 +1,17 @@
+--- 
+lacework::proxyurl: null
+lacework::config_tags: null
+lacework::perfmode: null
+lacework::cpulimit: null
+lacework::memlimit: null
+lacework::auto_upgrade: null
+lacework::container_engine_endpoint: null
+lacework::cmdlinefilter_allow: null
+lacework::cmdlinefilter_disallow: null
+lacework::fim_filepath: null
+lacework::fim_fileignore: null
+lacework::fim_runat: null
+lacework::fim_mode: null
+lacework::fim_noatime: null
+lacework::pkg::pkg_base_url: "https://packages.lacework.net"
+lacework::pkg::pkg_apt_key: "F9AD3D0CF81BBA0790F3D00C905195DD18E76630"
