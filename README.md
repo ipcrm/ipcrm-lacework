@@ -18,7 +18,7 @@ installation [here](https://support.lacework.com/hc/en-us/articles/1500007191502
 The simplest usage of this module is simply to declare the class including your access token:
 
 ```puppet
-class{ 'lacework':
+class {'lacework':
   access_token =>  "<your token here>"
 }
 ```
