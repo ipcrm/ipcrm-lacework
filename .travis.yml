@@ -24,7 +24,7 @@ stages:
 jobs:
   fast_finish: true
   include:
-     -
+    -
       before_script:
       - "bundle exec rake 'litmus:provision_list[ubuntu]'"
       - "bundle exec rake 'litmus:install_agent[puppet6]'"
