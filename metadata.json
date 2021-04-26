@@ -5,6 +5,8 @@
   "summary": "Puppet module for installing the Lacework agent.",
   "license": "Apache-2.0",
   "source": "https://github.com/ipcrm/ipcrm-lacework.git",
+  "project_page": "https://github.com/ipcrm/ipcrm-lacework",
+  "issues_url": "https://github.com/ipcrm/ipcrm-lacework/issues",
   "dependencies": [
     {
       "name": "puppetlabs/apt",
@@ -55,7 +57,8 @@
       ]
     },
     {
-      "operatingsystem": "Ubuntu", "operatingsystemrelease": [
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
         "14.04",
         "16.04",
         "18.04",
