@@ -42,9 +42,8 @@ class lacework::files (
     $fim_filtered = undef
   }
 
-
   $params = {
-    tokens                    =>  { 'AccessToken' => $access_token },
+    tokens                    => { 'AccessToken' => $access_token },
     'AutoUpgrade'             => $auto_upgrade,
     'ContainerEngineEndpoint' => $container_engine_endpoint,
     proxyurl                  => $proxyurl,
@@ -70,5 +69,6 @@ class lacework::files (
     owner   => 'root',
     group   => 'root',
     content => to_json_pretty($params_filtered),
+    notify  => Service['datacollector']
   }
 }
