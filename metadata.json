@@ -30,6 +30,20 @@
       ]
     },
     {
+      "operatingsystem": "Amazon",
+      "operatingsystemrelease": [
+        "2018.03",
+        "2017.12",
+        "2017.09",
+        "2017.03",
+        "2016.09",
+        "2016.03",
+      	"2015.09",
+        "2015.03",
+        "2014.09"
+      ]
+    },
+    {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
         "7",
