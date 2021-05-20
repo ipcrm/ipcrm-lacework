@@ -64,11 +64,12 @@ class lacework::files (
   }
 
   file {"${base_path}/config/config.json":
-    ensure  => 'present',
-    mode    => '0660',
-    owner   => 'root',
-    group   => 'root',
-    content => to_json_pretty($params_filtered),
-    notify  => Service['datacollector']
+    ensure    => 'present',
+    mode      => '0660',
+    owner     => 'root',
+    group     => 'root',
+    content   => to_json_pretty($params_filtered),
+    notify    => Service['datacollector'],
+    show_diff => false,
   }
 }
