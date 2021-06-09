@@ -43,6 +43,7 @@ class lacework::pkg (
 
       if $pkg_manage_sources {
         yumrepo { 'lacework':
+          descr   => 'Lacework',
           enabled => 1,
           baseurl => "${pkg_base_url}/RPMS/x86_64/",
           gpgkey  => "${pkg_base_url}/keys/RPM-GPG-KEY-lacework",
