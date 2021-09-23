@@ -30,8 +30,8 @@ describe 'lacework' do
           it { is_expected.to contain_class('apt') }
           it {
             is_expected.to contain_apt__key('lacework').with(
-            id: 'F9AD3D0CF81BBA0790F3D00C905195DD18E76630',
-          )
+              id: '360D55D76727556814078E25FF3E1D4DEE0CC692',
+            )
           }
 
           case os_facts[:operatingsystemmajrelease]
