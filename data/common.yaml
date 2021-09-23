@@ -14,4 +14,4 @@ lacework::fim_runat: null
 lacework::fim_mode: null
 lacework::fim_noatime: null
 lacework::pkg::pkg_base_url: "https://packages.lacework.net"
-lacework::pkg::pkg_apt_key: "F9AD3D0CF81BBA0790F3D00C905195DD18E76630"
+lacework::pkg::pkg_apt_key: "360D55D76727556814078E25FF3E1D4DEE0CC692"
