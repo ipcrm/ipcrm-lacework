@@ -65,7 +65,7 @@ class lacework::files (
 
   file {"${base_path}/config/config.json":
     ensure    => 'present',
-    mode      => '0660',
+    mode      => '0640',
     owner     => 'root',
     group     => 'root',
     content   => to_json_pretty($params_filtered),
