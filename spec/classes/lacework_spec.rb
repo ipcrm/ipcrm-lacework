@@ -21,7 +21,7 @@ describe 'lacework' do
         it { is_expected.to contain_file('/var/lib/lacework').with_mode('0755') }
         it { is_expected.to contain_file('/var/lib/lacework/config').with_mode('0755') }
         it { is_expected.to contain_file('/var/lib/lacework/config').with_ensure('directory') }
-        it { is_expected.to contain_file('/var/lib/lacework/config/config.json').with_mode('0660') }
+        it { is_expected.to contain_file('/var/lib/lacework/config/config.json').with_mode('0640') }
         it { is_expected.to contain_file(conf_path).with('content' => %r{\"AccessToken\"\: \"no\"}) }
       end
 
