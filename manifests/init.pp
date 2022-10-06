@@ -20,7 +20,7 @@
 # @param access_token
 #   Supply access token for the Lacework agent. See https://support.lacework.com/hc/en-us/articles/360036425594-Create-Agent-Access-Tokens-and-Download-Agent-Installers for info on access tokens. 
 #
-# @param serverurl
+# @param agent_server_url
 #    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
 #
 # @param config_tags
@@ -68,7 +68,9 @@
 #
 class lacework (
   String $access_token,
-  Enum['https://api.lacework.net', 'https://api.fra.lacework.net', 'https://auprodn1.agent.lacework.net'] $serverurl = 'https://api.lacework.net',
+  Enum['https://api.lacework.net',
+    'https://api.fra.lacework.net',
+  'https://auprodn1.agent.lacework.net'] $agent_server_url = 'https://api.lacework.net',
   String $package_ensure = 'present',
   String $service_ensure = 'running',
   Boolean $pkg_manage_sources = true,
@@ -89,7 +91,7 @@ class lacework (
 ) {
   class { 'lacework::files':
     access_token              => $access_token,
-    serverurl                 => $serverurl,
+    agent_server_url          => $agent_server_url,
     config_tags               => $config_tags,
     proxyurl                  => $proxyurl,
     cmdlinefilter_allow       => $cmdlinefilter_allow,

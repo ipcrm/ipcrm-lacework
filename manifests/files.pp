@@ -3,7 +3,7 @@
 #
 class lacework::files (
   $access_token,
-  $serverurl,
+  $agent_server_url,
   $config_tags,
   $proxyurl,
   $cmdlinefilter_allow,
@@ -44,7 +44,7 @@ class lacework::files (
 
   $params = {
     tokens                    => { 'AccessToken' => $access_token },
-    serverurl                 => $serverurl,
+    agent_server_url          => $agent_server_url,
     'AutoUpgrade'             => $auto_upgrade,
     'ContainerEngineEndpoint' => $container_engine_endpoint,
     proxyurl                  => $proxyurl,
