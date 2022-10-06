@@ -41,6 +41,7 @@ The following parameters are available in the `lacework` class:
 * [`service_ensure`](#service_ensure)
 * [`pkg_manage_sources`](#pkg_manage_sources)
 * [`access_token`](#access_token)
+* [`serverurl`](#serverurl)
 * [`config_tags`](#config_tags)
 * [`cmdlinefilter_allow`](#cmdlinefilter_allow)
 * [`cmdlinefilter_disallow`](#cmdlinefilter_disallow)
@@ -85,6 +86,14 @@ Default value: ``true``
 Data type: `String`
 
 Supply access token for the Lacework agent. See https://support.lacework.com/hc/en-us/articles/360036425594-Create-Agent-Access-Tokens-and-Download-Agent-Installers for info on access tokens.
+
+##### <a name="serverurl"></a>`serverurl`
+
+Data type: `Enum['https://api.lacework.net', 'https://api.fra.lacework.net', 'https://auprodn1.agent.lacework.net']`
+
+Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
+
+Default value: `'https://api.lacework.net'`
 
 ##### <a name="config_tags"></a>`config_tags`
 

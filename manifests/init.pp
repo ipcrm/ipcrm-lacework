@@ -20,6 +20,9 @@
 # @param access_token
 #   Supply access token for the Lacework agent. See https://support.lacework.com/hc/en-us/articles/360036425594-Create-Agent-Access-Tokens-and-Download-Agent-Installers for info on access tokens. 
 #
+# @param serverurl
+#    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
+#
 # @param config_tags
 #   Provide agent tags.  See https://support.lacework.com/hc/en-us/articles/360008466893-Add-Agent-Tags for details on agent tags
 #
@@ -65,6 +68,7 @@
 #
 class lacework (
   String $access_token,
+  Enum['https://api.lacework.net', 'https://api.fra.lacework.net', 'https://auprodn1.agent.lacework.net'] $serverurl = 'https://api.lacework.net',
   String $package_ensure = 'present',
   String $service_ensure = 'running',
   Boolean $pkg_manage_sources = true,
@@ -83,8 +87,9 @@ class lacework (
   Optional[String] $memlimit,
   Optional[String] $auto_upgrade,
 ) {
-  class {'lacework::files':
+  class { 'lacework::files':
     access_token              => $access_token,
+    serverurl                 => $serverurl,
     config_tags               => $config_tags,
     proxyurl                  => $proxyurl,
     cmdlinefilter_allow       => $cmdlinefilter_allow,
@@ -101,12 +106,12 @@ class lacework (
     auto_upgrade              => $auto_upgrade,
   }
 
-  class {'lacework::pkg':
-    pkg_manage_sources => $pkg_manage_sources
+  class { 'lacework::pkg':
+    pkg_manage_sources => $pkg_manage_sources,
   }
   contain lacework::service
 
-  Class['::lacework::files']
-    -> Class['::lacework::pkg']
-    -> Class['::lacework::service']
+  Class['lacework::files']
+  -> Class['lacework::pkg']
+  -> Class['lacework::service']
 }
