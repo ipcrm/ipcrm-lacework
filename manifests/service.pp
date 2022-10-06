@@ -2,8 +2,8 @@
 # @api private
 #
 class lacework::service {
-  service {'datacollector':
+  service { 'datacollector':
     ensure  => $lacework::service_ensure,
-    require =>  Package['lacework'],
+    require => Package['lacework'],
   }
 }
