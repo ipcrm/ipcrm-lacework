@@ -46,7 +46,6 @@ class lacework::files (
   $params = {
     tokens                    => { 'AccessToken' => $access_token },
     serverurl                 => $agent_server_url,
-    serverurl                 => $agent_server_url,
     'AutoUpgrade'             => $auto_upgrade,
     'ContainerEngineEndpoint' => $container_engine_endpoint,
     proxyurl                  => $proxyurl,

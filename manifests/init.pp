@@ -93,7 +93,6 @@ class lacework (
   class {  'lacework::files':
     access_token              => $access_token,
     agent_server_url          => $agent_server_url,
-    agent_server_url          => $agent_server_url,
     config_tags               => $config_tags,
     proxyurl                  => $proxyurl,
     cmdlinefilter_allow       => $cmdlinefilter_allow,
