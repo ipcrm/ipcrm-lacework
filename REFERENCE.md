@@ -46,6 +46,7 @@ The following parameters are available in the `lacework` class:
 * [`pkg_manage_sources`](#pkg_manage_sources)
 * [`access_token`](#access_token)
 * [`agent_server_url`](#agent_server_url)
+* [`agent_server_url`](#agent_server_url)
 * [`config_tags`](#config_tags)
 * [`cmdlinefilter_allow`](#cmdlinefilter_allow)
 * [`cmdlinefilter_disallow`](#cmdlinefilter_disallow)

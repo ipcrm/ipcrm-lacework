@@ -23,6 +23,9 @@
 # @param agent_server_url
 #    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
 #
+# @param agent_server_url
+#    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
+#
 # @param config_tags
 #   Provide agent tags.  See https://support.lacework.com/hc/en-us/articles/360008466893-Add-Agent-Tags for details on agent tags
 #
@@ -87,8 +90,9 @@ class lacework (
   Optional[String] $memlimit,
   Optional[String] $auto_upgrade,
 ) {
-  class { 'lacework::files':
+  class {  'lacework::files':
     access_token              => $access_token,
+    agent_server_url          => $agent_server_url,
     agent_server_url          => $agent_server_url,
     config_tags               => $config_tags,
     proxyurl                  => $proxyurl,
@@ -106,8 +110,8 @@ class lacework (
     auto_upgrade              => $auto_upgrade,
   }
 
-  class { 'lacework::pkg':
-    pkg_manage_sources => $pkg_manage_sources,
+  class {  'lacework::pkg':
+    pkg_manage_sources => $pkg_manage_sources,,
   }
   contain lacework::service
 
