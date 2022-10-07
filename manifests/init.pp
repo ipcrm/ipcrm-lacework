@@ -90,7 +90,7 @@ class lacework (
   Optional[String] $memlimit,
   Optional[String] $auto_upgrade,
 ) {
-  class {  'lacework::files':
+  class { 'lacework::files':
     access_token              => $access_token,
     agent_server_url          => $agent_server_url,
     config_tags               => $config_tags,
@@ -109,8 +109,8 @@ class lacework (
     auto_upgrade              => $auto_upgrade,
   }
 
-  class {  'lacework::pkg':
-    pkg_manage_sources => $pkg_manage_sources,,
+  class { 'lacework::pkg':
+    pkg_manage_sources => $pkg_manage_sources,
   }
   contain lacework::service
 
