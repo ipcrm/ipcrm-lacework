@@ -22,7 +22,6 @@ stages:
   - spec
   - acceptance1
   - acceptance2
-  - acceptance3
 jobs:
   fast_finish: true
   include:
@@ -50,16 +49,6 @@ jobs:
       script: ["travis_wait 15 bundle exec rake litmus:acceptance:parallel"]
       services: docker
       stage: acceptance2
-    -
-      before_script:
-      - "bundle install"
-      - "bundle exec rake 'litmus:provision_list[rockylinux]'"
-      - "bundle exec rake 'litmus:install_agent[puppet6]'"
-      - "bundle exec rake litmus:install_module"
-      rvm: 2.5.7
-      script: ["travis_wait 15 bundle exec rake litmus:acceptance:parallel"]
-      services: docker
-      stage: acceptance3
     -
       env: CHECK="check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop syntax lint metadata_lint"
       stage: static
