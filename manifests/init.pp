@@ -68,9 +68,7 @@
 #
 class lacework (
   String $access_token,
-  Enum['https://api.lacework.net',
-    'https://api.fra.lacework.net',
-  'https://auprodn1.agent.lacework.net'] $agent_server_url = 'https://api.lacework.net',
+  Lacework::Agenturls $agent_server_url = 'https://api.lacework.net',
   String $package_ensure = 'present',
   String $service_ensure = 'running',
   Boolean $pkg_manage_sources = true,

@@ -16,6 +16,7 @@ ubuntu:
   images:
   - litmusimage/ubuntu:18.04
   - litmusimage/ubuntu:20.04
+  - litmusimage/ubuntu:22.04
 debian:
   provisioner: docker
   images:

@@ -2,9 +2,9 @@
 # @api private
 #
 class lacework::pkg (
-  $pkg_manage_sources,
-  $pkg_base_url,
-  $pkg_apt_key,
+  Boolean $pkg_manage_sources,
+  Stdlib::HTTPSUrl $pkg_base_url,
+  String $pkg_apt_key,
 ) {
   case $::facts['os']['family'] {
     'Debian': {
