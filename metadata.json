@@ -1,6 +1,6 @@
 {
   "name": "ipcrm-lacework",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "author": "ipcrm",
   "summary": "Puppet module for installing the Lacework agent.",
   "license": "Apache-2.0",
