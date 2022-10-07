@@ -41,7 +41,7 @@ jobs:
       before_script:
       - "bundle install"
       - "bundle exec rake 'litmus:provision_list[debian]'"
-      - "bundle exec bolt command run 'apt-get update && apt-get install lsb-release -y' -t all -i spec/fixtures/litmus_inventory.yaml"
+      - "bundle exec bolt command run 'apt-get update && apt-get install lsb-release curl -y' -t all -i spec/fixtures/litmus_inventory.yaml"
       - "bundle exec rake 'litmus:provision_list[oracle]'"
       - "bundle exec rake 'litmus:install_agent[puppet6]'"
       - "bundle exec rake litmus:install_module"

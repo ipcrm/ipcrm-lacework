@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/apt",
-      "version_requirement": ">= 7.0.0 < 9.0.0"
+      "version_requirement": ">= 7.0.0 < 10.0.0"
     },
     {
       "name": "puppetlabs/yumrepo_core",
@@ -18,7 +18,7 @@
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 5.0.0 < 8.0.0"
+      "version_requirement": ">= 5.0.0 < 9.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -33,26 +33,22 @@
       "operatingsystem": "Amazon",
       "operatingsystemrelease": [
         "2018.03",
-        "2017.12",
         "2017.09",
         "2017.03",
         "2016.09",
-        "2016.03",
-      	"2015.09",
-        "2015.03",
-        "2014.09"
+        "2016.03"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7",
         "8"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
+        "7",
         "8"
       ]
     },
@@ -66,15 +62,12 @@
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
         "10",
-        "9",
-        "8"
+        "9"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "14.04",
-        "16.04",
         "18.04",
         "20.04"
       ]
@@ -82,7 +75,12 @@
     {
       "operatingsystem": "Fedora",
       "operatingsystemrelease": [
-        "29"
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35"
       ]
     }
   ],

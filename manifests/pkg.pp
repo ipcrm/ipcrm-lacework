@@ -7,9 +7,7 @@ class lacework::pkg (
   $pkg_apt_key,
 ) {
   case $::facts['os']['family'] {
-
     'Debian': {
-
       if $pkg_manage_sources {
         $os_name = downcase($::facts['os']['name'])
         $os_major = $::facts['os']['release']['major']
@@ -26,21 +24,20 @@ class lacework::pkg (
           release  => $os_codename,
           repos    => 'main',
           notify   => Exec['apt_update'],
-          require  =>  Apt::Key['lacework'],
+          require  => Apt::Key['lacework'],
         }
         $require = Apt::Source['lacework']
       } else {
         $require = undef
       }
 
-      package {'lacework':
+      package { 'lacework':
         ensure  => $lacework::package_ensure,
         require => $require,
       }
     }
 
     'RedHat': {
-
       if $pkg_manage_sources {
         yumrepo { 'lacework':
           descr   => 'Lacework',
@@ -53,7 +50,7 @@ class lacework::pkg (
         $require = Yumrepo['lacework']
       }
 
-      package {'lacework':
+      package { 'lacework':
         ensure  => $lacework::package_ensure,
         require => $require,
       }
@@ -62,7 +59,5 @@ class lacework::pkg (
     default: {
       fail('Unsupported OS')
     }
-
   }
-
 }

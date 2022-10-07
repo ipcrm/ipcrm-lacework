@@ -3,6 +3,7 @@
 #
 class lacework::files (
   $access_token,
+  $agent_server_url,
   $config_tags,
   $proxyurl,
   $cmdlinefilter_allow,
@@ -18,8 +19,7 @@ class lacework::files (
   $auto_upgrade,
   $container_engine_endpoint,
   $base_path = '/var/lib/lacework',
-){
-
+) {
   if $cmdlinefilter_allow or $cmdlinefilter_disallow {
     $cmdlinefilter = {
       allow    => pick_default($cmdlinefilter_allow, ''),
@@ -44,6 +44,7 @@ class lacework::files (
 
   $params = {
     tokens                    => { 'AccessToken' => $access_token },
+    serverurl                 => $agent_server_url,
     'AutoUpgrade'             => $auto_upgrade,
     'ContainerEngineEndpoint' => $container_engine_endpoint,
     proxyurl                  => $proxyurl,
@@ -63,8 +64,8 @@ class lacework::files (
     group  => 'root',
   }
 
-  file {"${base_path}/config/config.json":
-    ensure    => 'present',
+  file { "${base_path}/config/config.json":
+    ensure    => 'file',
     mode      => '0640',
     owner     => 'root',
     group     => 'root',
