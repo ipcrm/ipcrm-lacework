@@ -22,3 +22,7 @@ debian:
   images:
   - litmusimage/debian:9
   - litmusimage/debian:10
+rockylinux:
+  provisioner: docker
+  images:
+  - litmusimage/rockylinux:8
