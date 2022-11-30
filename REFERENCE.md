@@ -16,6 +16,10 @@
 * `lacework::pkg`: This class is used to control package repositories and package installation for the Lacework agent.
 * `lacework::service`: This class is used to control the Lacework service.
 
+### Data types
+
+* [`Lacework::Agenturls`](#laceworkagenturls): Type containing all valid Lacework agent urls
+
 ## Classes
 
 ### <a name="lacework"></a>`lacework`
@@ -41,6 +45,7 @@ The following parameters are available in the `lacework` class:
 * [`service_ensure`](#service_ensure)
 * [`pkg_manage_sources`](#pkg_manage_sources)
 * [`access_token`](#access_token)
+* [`agent_server_url`](#agent_server_url)
 * [`agent_server_url`](#agent_server_url)
 * [`config_tags`](#config_tags)
 * [`cmdlinefilter_allow`](#cmdlinefilter_allow)
@@ -89,9 +94,7 @@ Supply access token for the Lacework agent. See https://support.lacework.com/hc/
 
 ##### <a name="agent_server_url"></a>`agent_server_url`
 
-Data type: `Enum['https://api.lacework.net',
-    'https://api.fra.lacework.net',
-  'https://auprodn1.agent.lacework.net']`
+Data type: `Lacework::Agenturls`
 
 Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
 
@@ -180,4 +183,16 @@ See https://support.lacework.com/hc/en-us/articles/360024365753-Configure-Agent-
 Data type: `Optional[String]`
 
 See https://support.lacework.com/hc/en-us/articles/360024365753-Configure-Agent-Behavior-in-config-json-File#autoupgrade-property for details on configuring agent auto-upgrades.
+
+## Data types
+
+### <a name="laceworkagenturls"></a>`Lacework::Agenturls`
+
+Type containing all valid Lacework agent urls
+
+Alias of
+
+```puppet
+Enum['https://api.lacework.net', 'https://api.fra.lacework.net', 'https://auprodn1.agent.lacework.net']
+```
 

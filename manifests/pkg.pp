@@ -2,9 +2,9 @@
 # @api private
 #
 class lacework::pkg (
-  $pkg_manage_sources,
-  $pkg_base_url,
-  $pkg_apt_key,
+  Boolean $pkg_manage_sources,
+  Stdlib::HTTPSUrl $pkg_base_url,
+  String $pkg_apt_key,
 ) {
   case $::facts['os']['family'] {
     'Debian': {
@@ -21,6 +21,15 @@ class lacework::pkg (
 
         apt::source { 'lacework':
           location => "${pkg_base_url}/DEB/${os_name}/${os_major}",
+          release  => $os_codename,
+          repos    => 'main',
+          notify   => Exec['apt_update'],
+          require  => Apt::Key['lacework'],
+        }
+
+        apt::source { 'lacework-latest':
+          ensure   => absent,
+          location => "${pkg_base_url}/latest/DEB/${os_name}/${os_major}",
           release  => $os_codename,
           repos    => 'main',
           notify   => Exec['apt_update'],
@@ -43,6 +52,12 @@ class lacework::pkg (
           descr   => 'Lacework',
           enabled => 1,
           baseurl => "${pkg_base_url}/RPMS/x86_64/",
+          gpgkey  => "${pkg_base_url}/keys/RPM-GPG-KEY-lacework",
+        }
+        yumrepo { 'lacework-latest':
+          descr   => 'LaceworkmLatest Agent',
+          enabled => 1,
+          baseurl => "${pkg_base_url}/latest/RPMS/x86_64/",
           gpgkey  => "${pkg_base_url}/keys/RPM-GPG-KEY-lacework",
         }
         $require = Yumrepo['lacework']

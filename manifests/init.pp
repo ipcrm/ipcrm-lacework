@@ -23,6 +23,9 @@
 # @param agent_server_url
 #    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
 #
+# @param agent_server_url
+#    Supply the correct server api url. See https://docs.lacework.net/onboarding/agent-server-url for details.
+#
 # @param config_tags
 #   Provide agent tags.  See https://support.lacework.com/hc/en-us/articles/360008466893-Add-Agent-Tags for details on agent tags
 #
@@ -68,9 +71,7 @@
 #
 class lacework (
   String $access_token,
-  Enum['https://api.lacework.net',
-    'https://api.fra.lacework.net',
-  'https://auprodn1.agent.lacework.net'] $agent_server_url = 'https://api.lacework.net',
+  Lacework::Agenturls $agent_server_url = 'https://api.lacework.net',
   String $package_ensure = 'present',
   String $service_ensure = 'running',
   Boolean $pkg_manage_sources = true,

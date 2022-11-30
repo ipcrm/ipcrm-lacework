@@ -1,24 +1,25 @@
-# @summary This class is used to control required files for the lacework agent, including config.json
+# @summary
+#    This class is used to control required files for the lacework agent, including config.json
 # @api private
 #
 class lacework::files (
-  $access_token,
-  $agent_server_url,
-  $config_tags,
-  $proxyurl,
-  $cmdlinefilter_allow,
-  $cmdlinefilter_disallow,
-  $fim_filepath,
-  $fim_fileignore,
-  $fim_noatime,
-  $fim_mode,
-  $fim_runat,
-  $perfmode,
-  $cpulimit,
-  $memlimit,
-  $auto_upgrade,
-  $container_engine_endpoint,
-  $base_path = '/var/lib/lacework',
+  String $access_token,
+  Stdlib::HTTPSUrl $agent_server_url,
+  Optional[Hash[String, String]] $config_tags,
+  Optional[String] $proxyurl,
+  Optional[String] $cmdlinefilter_allow,
+  Optional[String] $cmdlinefilter_disallow,
+  Optional[Array[String]] $fim_filepath,
+  Optional[Array[String]] $fim_fileignore,
+  Optional[Boolean] $fim_noatime,
+  Optional[String] $fim_mode,
+  Optional[String] $fim_runat,
+  Optional[String] $perfmode,
+  Optional[String] $cpulimit,
+  Optional[String] $memlimit,
+  Optional[String] $auto_upgrade,
+  Optional[String] $container_engine_endpoint,
+  Stdlib::Absolutepath $base_path = '/var/lib/lacework',
 ) {
   if $cmdlinefilter_allow or $cmdlinefilter_disallow {
     $cmdlinefilter = {
