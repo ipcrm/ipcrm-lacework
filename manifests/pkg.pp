@@ -28,6 +28,7 @@ class lacework::pkg (
         }
 
         apt::source { 'lacework-latest':
+          ensure   => absent,
           location => "${pkg_base_url}/latest/DEB/${os_name}/${os_major}",
           release  => $os_codename,
           repos    => 'main',
