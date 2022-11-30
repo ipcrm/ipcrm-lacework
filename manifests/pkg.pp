@@ -26,6 +26,14 @@ class lacework::pkg (
           notify   => Exec['apt_update'],
           require  => Apt::Key['lacework'],
         }
+
+        apt::source { 'lacework-latest':
+          location => "${pkg_base_url}/latest/DEB/${os_name}/${os_major}",
+          release  => $os_codename,
+          repos    => 'main',
+          notify   => Exec['apt_update'],
+          require  => Apt::Key['lacework'],
+        }
         $require = Apt::Source['lacework']
       } else {
         $require = undef
@@ -43,6 +51,12 @@ class lacework::pkg (
           descr   => 'Lacework',
           enabled => 1,
           baseurl => "${pkg_base_url}/RPMS/x86_64/",
+          gpgkey  => "${pkg_base_url}/keys/RPM-GPG-KEY-lacework",
+        }
+        yumrepo { 'lacework-latest':
+          descr   => 'LaceworkmLatest Agent',
+          enabled => 1,
+          baseurl => "${pkg_base_url}/latest/RPMS/x86_64/",
           gpgkey  => "${pkg_base_url}/keys/RPM-GPG-KEY-lacework",
         }
         $require = Yumrepo['lacework']
